@@ -1,0 +1,10 @@
+# This is a duckscript file.
+# https://github.com/sagiegurari/duckscript
+
+echo
+echo Please input your GitHub ID.
+echo Enter your value:
+user_github_account_name = read
+if is_empty ${user_github_account_name}
+  assert_error "Please retry and input your GitHub ID"
+end
