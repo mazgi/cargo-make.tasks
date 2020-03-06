@@ -11,7 +11,7 @@ min_version = "0.26.1"
 cwd = "${CARGO_MAKE_CURRENT_TASK_INITIAL_MAKEFILE_DIRECTORY}/../"
 
 [tasks.default]
-run_task = [
-  { name = "place-google-cloud-keyfile" },
-  { name = "create-dotenv-file" }
+dependencies = [
+  "place-google-cloud-keyfile",
+  "create-dotenv-file"
 ]
