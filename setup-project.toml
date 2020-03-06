@@ -1,5 +1,6 @@
 extend = [
-  { path = ".setup-project.create-dotenv-file.toml" }
+  { path = ".setup-project.create-dotenv-file.toml" },
+  { path = ".setup-project.place-google-cloud-keyfile.toml" }
 ]
 
 [config]
@@ -10,6 +11,7 @@ min_version = "0.26.1"
 cwd = "${CARGO_MAKE_CURRENT_TASK_INITIAL_MAKEFILE_DIRECTORY}/../"
 
 [tasks.default]
-dependencies = [
-  "create-dotenv-file"
+run_task = [
+  { name = "place-google-cloud-keyfile" },
+  { name = "create-dotenv-file" }
 ]
