@@ -24,6 +24,10 @@ out = set "${out}TF_VAR_user_github_account_name=${user_github_account_name}\n"
 out = set "${out}CLOUDSDK_CORE_PROJECT=${gcp_project_id}\n"
 out = set "${out}TF_VAR_gcp_project_id=${gcp_project_id}\n"
 
+!include_files ./tasks/.create-dotenv-file.ip_addrs.ds
+out = set "${out}BIND_IP_ADDR=${bind_ip_addr}\n"
+out = set "${out}PUBLIC_IP_ADDR=${public_ip_addr}\n"
+
 writefile .env ${out}
 '''
 ]
@@ -45,6 +49,10 @@ out = set "${out}TF_VAR_user_github_account_name=${user_github_account_name}\n"
 !include_files ./tasks/.create-dotenv-file.cloudsdk-core-project.ds
 out = set "${out}CLOUDSDK_CORE_PROJECT=${gcp_project_id}\n"
 out = set "${out}TF_VAR_gcp_project_id=${gcp_project_id}\n"
+
+!include_files ./tasks/.create-dotenv-file.ip_addrs.ds
+out = set "${out}BIND_IP_ADDR=${bind_ip_addr}\n"
+out = set "${out}PUBLIC_IP_ADDR=${public_ip_addr}\n"
 
 writefile .env ${out}
 '''

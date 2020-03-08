@@ -13,5 +13,6 @@ cwd = "${CARGO_MAKE_CURRENT_TASK_INITIAL_MAKEFILE_DIRECTORY}/../"
 [tasks.default]
 dependencies = [
   "place-google-cloud-keyfile",
+  "create-config-files",
   "create-dotenv-file"
 ]
