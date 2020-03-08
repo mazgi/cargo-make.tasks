@@ -1,5 +1,6 @@
 extend = [
   { path = ".setup-project.place-google-cloud-keyfile.toml" },
+  { path = ".setup-project.create-keypair.toml" },
   { path = ".setup-project.create-dotenv-file.toml" },
   { path = ".setup-project.create-config-files.toml" }
 ]
@@ -14,6 +15,7 @@ cwd = "${CARGO_MAKE_CURRENT_TASK_INITIAL_MAKEFILE_DIRECTORY}/../"
 [tasks.default]
 dependencies = [
   "place-google-cloud-keyfile",
+  "create-keypair",
   "create-config-files",
   "create-dotenv-file"
 ]
