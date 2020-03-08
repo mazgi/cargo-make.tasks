@@ -1,6 +1,7 @@
 extend = [
+  { path = ".setup-project.place-google-cloud-keyfile.toml" },
   { path = ".setup-project.create-dotenv-file.toml" },
-  { path = ".setup-project.place-google-cloud-keyfile.toml" }
+  { path = ".setup-project.create-config-files.toml" }
 ]
 
 [config]
