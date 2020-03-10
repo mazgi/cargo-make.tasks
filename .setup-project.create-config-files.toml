@@ -1,11 +1,11 @@
 [tasks.create-config-files]
+condition.env_true = ['CARGO_MAKE_TASK_ENABLE_SETUP_PROJECT_CREATE_CONFIG_FILES']
+condition.files_not_exist = ["${CARGO_MAKE_WORKING_DIRECTORY}/config.development/bff/config.json"]
+condition.files_exist = ["${CARGO_MAKE_WORKING_DIRECTORY}/.env"]
 dependencies = [
   "prepare",
   "create-dotenv-file"
 ]
-# See https://github.com/mazgi-sandbox/202001.cargo-make-0.26.1-cannot-line-breaks-in-condition
-condition.files_not_exist = ["${CARGO_MAKE_WORKING_DIRECTORY}/config.development/bff/config.json"]
-condition.files_exist = ["${CARGO_MAKE_WORKING_DIRECTORY}/.env"]
 env_files = [
   { path = ".env" }
 ]
@@ -14,7 +14,7 @@ script = [
 '''
 config_version = set "2020.1.0-dev"
 config_server_port = set 4000
-config_server_origin = get_env PUBLIC_IP_ADDR
+config_server_origin = get_env PUBLIC_IP_ADDR_OR_FQDN
 config_client_port = set 3000
 
 config = set "{ \"version\": \"${config_version}\", \"server\": { \"port\": ${config_server_port}, \"origins\": [ \"http://${config_server_origin}:${config_client_port}\" ] } }"

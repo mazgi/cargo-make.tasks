@@ -59,6 +59,7 @@ op get document ${CARGO_MAKE_OP_DOCUMENT_NAME_GOOGLE_CLOUD_KEYFILE} > credential
 
 
 [tasks.place-google-cloud-keyfile]
+condition.env_true = ['CARGO_MAKE_TASK_ENABLE_SETUP_PROJECT_PLACE_GOOGLE_CLOUD_KEYFILE']
 dependencies = [
   "prepare",
   "check-op-cli"
